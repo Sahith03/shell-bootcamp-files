@@ -1,0 +1,11 @@
+pid,pname,orderqty,unitprice
+1,Phone,5,500
+2,Keyboard,5,500
+3,Laptop,3,100000
+4,Desktop,4,60000
+5,Chipcard,20,3000
+6,Biometric,10,12000
+7,Projector,5,11000
+8,Lan Cable,50,600
+9,HDMI,50,550
+10,VGA Cable,10,540
