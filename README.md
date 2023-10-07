@@ -1,2 +1,2 @@
 # shell-bootcamp-files
-A repository of all the activities done at Shell
+A repository of all the activities done at Shell Bootcamp
