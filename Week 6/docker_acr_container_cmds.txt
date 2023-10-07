@@ -1,0 +1,23 @@
+# DOCKER
+Start docker -> sudo systemctl start docker
+Build docker image -> sudo docker build -t python-app .
+Run docker image ->sudo docker run python-app
+
+# Container Registry
+Install AzureCLI -> curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+Azure login -> az login
+Resource group creation -> az group create --name RG_IDAshell --location eastus
+ACR creation -> az acr create --name idaacr01 --resource-group RG_IDAshell --location eastus --sku Standard
+ACR login -> az acr login --name idaacr01
+Docker login -> docker login idaacr01.azurecr.io
+Tagging docker image -> docker tag python-app idaacr01.azurecr.io/python-app:v1
+Pushing docker image to ACR -> docker push idaacr01.azurecr.io/python-app:v1
+
+# Kubernetes
+az aks get-credentials --resource-group RG_IDAshell --name kubcluster
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl get svc python-app
+kubectl logs -l app=my-app
+kubectl get pods
+az aks update -n kubcluster -g RG_IDAshell --attach-acr idaacr01
